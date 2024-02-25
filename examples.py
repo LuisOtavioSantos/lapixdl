@@ -43,7 +43,7 @@ def evaluate_segmentation_example():
     # Creates a rectangle of 1s in a 0s array
     gt_bbox_1 = BBox(10, 10, 10, 10, 1)
     mask_bin_GT_1 = draw_rectangle(
-        np.zeros(mask_shape, np.int),
+        np.zeros(mask_shape, np.uint8),
         gt_bbox_1.upper_left_point,
         gt_bbox_1.bottom_right_point,
         1,
@@ -51,7 +51,7 @@ def evaluate_segmentation_example():
 
     pred_bbox_1 = BBox(10, 10, 10, 10, 1)
     mask_bin_pred_1 = draw_rectangle(
-        np.zeros(mask_shape, np.int),
+        np.zeros(mask_shape, np.uint8),
         pred_bbox_1.upper_left_point,
         pred_bbox_1.bottom_right_point,
         1,
@@ -60,7 +60,7 @@ def evaluate_segmentation_example():
     # Creates a rectangle of 2s in a 0s array
     gt_bbox_2 = BBox(110, 110, 320, 280, 2)
     mask_bin_GT_2 = draw_rectangle(
-        np.zeros(mask_shape, np.int),
+        np.zeros(mask_shape, np.uint8),
         gt_bbox_2.upper_left_point,
         gt_bbox_2.bottom_right_point,
         2,
@@ -68,7 +68,7 @@ def evaluate_segmentation_example():
 
     pred_bbox_2 = BBox(70, 50, 240, 220, 2)
     mask_bin_pred_2 = draw_rectangle(
-        np.zeros(mask_shape, np.int),
+        np.zeros(mask_shape, np.uint8),
         pred_bbox_2.upper_left_point,
         pred_bbox_2.bottom_right_point,
         2,
@@ -278,7 +278,7 @@ def random_image(h=None, w=None):
 
 
 def draw_bboxes(mask_shape, bboxes):
-    mask = np.zeros(mask_shape, np.int)
+    mask = np.zeros(mask_shape, np.uint8)
 
     for bbox in bboxes:
         mask[
