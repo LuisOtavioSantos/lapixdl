@@ -10,6 +10,7 @@ from matplotlib import cm
 from matplotlib.axes import Axes
 from matplotlib.colors import Colormap
 from matplotlib.figure import Figure
+from matplotlib.colormaps import get_cmap
 
 from .model import Classification
 from .model import Mask
@@ -90,7 +91,12 @@ def show_segmentations(
         Tuple[Figure, Axes]: Figure and Axes of the ploted results.
     """
 
-    cmap_colors = cm.get_cmap(cmap).colors
+    if not results:
+        print("A lista de resultados está vazia.")
+        return None
+    
+    cmap_colors = get_cmap(cmap).colors
+
 
     assert len(cmap_colors) >= len(
         class_names,
