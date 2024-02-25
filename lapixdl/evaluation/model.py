@@ -148,7 +148,7 @@ class BinaryClassificationMetrics:
         if self.TP == 0 and self.FP == 0 and self.FN == 0:  # No GT instances
             return 1
         elif quotient == 0:
-            return math.nan
+            return 0.0
         return 2 * self.TP / quotient
 
     @property
@@ -396,7 +396,7 @@ class BinarySegmentationMetrics(BinaryClassificationMetrics):
         """float: IoU/Jaccard Index metric - TP / (FP + FN + TP)."""
         quotient = (self.FP + self.FN + self.TP)
         if quotient == 0:
-            return math.nan
+            return 0.0
         return self.TP / quotient
 
     def __str__(self):
