@@ -61,6 +61,16 @@ def evaluate_segmentation(
 
         confusion_matrix += curr_confusion_matrix
 
+    segmentation_metrics = SegmentationMetrics(classes, confusion_matrix)
+
+    has_positive_instances = any(
+        segmentation_metrics.by_class[i].gt_count > 0
+        for i in range(1, classes_count)
+    )
+
+    if not has_positive_instances:
+        warnings.warn("No positive instances found in GT or predictions.")
+
     return SegmentationMetrics(classes, confusion_matrix)
 
 

@@ -92,7 +92,7 @@ def show_segmentations(
     """
 
     if not results:
-        print("A lista de resultados está vazia.")
+        print("The result list is empty.")
         return None
     
     cmap_colors = get_cmap(cmap).colors
