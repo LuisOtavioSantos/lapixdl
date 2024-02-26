@@ -10,7 +10,7 @@ from matplotlib import cm
 from matplotlib.axes import Axes
 from matplotlib.colors import Colormap
 from matplotlib.figure import Figure
-from matplotlib.colormaps import get_cmap
+from matplotlib.cm import get_cmap
 
 from .model import Classification
 from .model import Mask
